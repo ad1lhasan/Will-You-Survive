@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Survival ⛴️</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Titanic Survival ⛴️</h1>
+
+        <form action="{{ url_for('predict') }}" method="post">
+            <input type="number" name="age" placeholder="AGE" required>
+            <input type="number" name="fare" placeholder="FARE OF TICKET" required>
+            <input type="number" name="sibsp" placeholder="SIBLINGS / SPOUSE" required>
+            <input type="number" name="parch" placeholder="PARENT / CHILDREN" required>
+            <br>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+        <p>{{ prediction_text }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
